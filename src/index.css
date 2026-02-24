@@ -1,5 +1,98 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Hanken Grotesk', system-ui, sans-serif;
+}
+
+:root {
+  --bg: #F6F4EF;
+  --ink: #19180F;
+  --ink-2: #78766C;
+  --border: #E3E0D6;
+  --surface: #EDEBE4;
+}
+
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* Nav arrow links */
+.nav-link {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: color 0.15s;
+}
+
+.nav-link .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.nav-link:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* Project card hover */
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-link:hover .project-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Article row */
+.article-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  gap: 16px;
+}
+
+.article-row:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.article-row:hover .article-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Section label */
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 28px;
 }

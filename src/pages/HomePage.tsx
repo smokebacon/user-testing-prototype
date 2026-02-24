@@ -1,144 +1,186 @@
 export default function HomePage() {
   return (
-    <div className="space-y-20 sm:space-y-28 pb-20">
-      {/* Introduction */}
-      <section id="intro" className="scroll-mt-16 pt-4">
-        <div className="rounded-2xl bg-white border border-gray-200 p-8 sm:p-12 lg:p-16">
-          <p className="text-sm font-medium text-indigo-600 uppercase tracking-wider mb-3">
-            Hello, I'm
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
-            Your Name
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed">
-            I design and build digital products. I focus on clear problems, thoughtful solutions, and outcomes that matter.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#case-studies"
-              className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 active:scale-[0.98] transition-all"
-            >
-              View work
-            </a>
-            <a
-              href="#about"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 active:scale-[0.98] transition-all"
-            >
-              About me
-            </a>
-          </div>
-        </div>
+    <div style={{ paddingBottom: '80px' }}>
+
+      {/* Hero */}
+      <section id="intro" style={{ paddingTop: '72px', paddingBottom: '80px' }}>
+        <p style={{ fontSize: '13px', color: 'var(--ink-2)', marginBottom: '20px', fontWeight: 400, letterSpacing: '0.01em' }}>
+          Designer &amp; Developer
+        </p>
+        <h1
+          className="font-display"
+          style={{
+            fontSize: 'clamp(36px, 6vw, 56px)',
+            fontWeight: 400,
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            color: 'var(--ink)',
+            marginBottom: '28px',
+            maxWidth: '580px',
+          }}
+        >
+          Form Follows Function.
+        </h1>
+        <p style={{ fontSize: '15px', color: 'var(--ink-2)', lineHeight: 1.7, maxWidth: '480px', marginBottom: '20px' }}>
+          Life gets in the way and the information here is not always up to date.
+          I'm a designer who codes, building products that solve real problems with clarity.
+        </p>
+        <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: 1.6 }}>
+          Available{' '}
+          <span style={{ color: 'var(--ink)' }}>20–40 hours per week.</span>
+          {' '}Then,{' '}
+          <a
+            href="#contact"
+            style={{ color: 'var(--ink)', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+          >
+            let's connect →
+          </a>
+        </p>
       </section>
 
-      {/* About me */}
-      <section id="about" className="scroll-mt-16">
-        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">
-          About me
-        </h2>
-        <div className="rounded-2xl bg-white border border-gray-200 p-6 sm:p-8 lg:p-10">
-          <p className="text-gray-700 leading-relaxed max-w-2xl">
-            I'm a [role] with [X] years of experience in [domain]. I care about [values], and I've worked with teams at [companies or types of projects] to [kind of impact].
-          </p>
-          <p className="mt-4 text-gray-700 leading-relaxed max-w-2xl">
-            When I'm not [main work], I [hobby or side interest]. I'm based in [location] and always open to interesting conversations and collaborations.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4 text-sm">
-            <a href="#" className="text-indigo-600 font-medium hover:text-indigo-700 hover:underline">
-              LinkedIn
-            </a>
-            <a href="#" className="text-indigo-600 font-medium hover:text-indigo-700 hover:underline">
-              Twitter / X
-            </a>
-            <a href="#" className="text-indigo-600 font-medium hover:text-indigo-700 hover:underline">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Case studies */}
-      <section id="case-studies" className="scroll-mt-16">
-        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">
-          Case studies
-        </h2>
-        <ul className="space-y-6">
-          {caseStudies.map((study) => (
-            <li key={study.id}>
-              <a
-                href={study.url}
-                className="block rounded-2xl bg-white border border-gray-200 p-6 sm:p-8 hover:border-gray-300 hover:shadow-sm transition-all group"
+      {/* Work */}
+      <section id="work" style={{ paddingBottom: '72px' }}>
+        <p className="section-label">Selected Work</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '32px' }}>
+          {projects.map((project) => (
+            <a key={project.id} href={project.url} className="project-link">
+              {/* Placeholder image block */}
+              <div
+                style={{
+                  width: '100%',
+                  aspectRatio: '4 / 3',
+                  backgroundColor: project.color,
+                  borderRadius: '4px',
+                  marginBottom: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
+                }}
               >
-                <span className="text-xs font-medium text-indigo-600 uppercase tracking-wider">
-                  {study.client}
+                <span
+                  className="font-display"
+                  style={{ fontSize: '32px', color: 'rgba(0,0,0,0.15)', fontWeight: 300, letterSpacing: '-0.02em' }}
+                >
+                  {project.initials}
                 </span>
-                <h3 className="mt-2 text-xl font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                  {study.title}
-                </h3>
-                <p className="mt-2 text-gray-600 text-sm sm:text-base">
-                  {study.summary}
-                </p>
-                <span className="mt-4 inline-flex items-center text-sm font-medium text-indigo-600 group-hover:underline">
-                  Read case study →
-                </span>
-              </a>
-            </li>
+              </div>
+              <p style={{ fontSize: '11px', color: 'var(--ink-2)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px', fontWeight: 500 }}>
+                {project.tags.join(', ')}
+              </p>
+              <h3
+                className="project-title"
+                style={{ fontSize: '15px', fontWeight: 400, color: 'var(--ink)', lineHeight: 1.3 }}
+              >
+                {project.title}
+              </h3>
+            </a>
           ))}
-        </ul>
+        </div>
       </section>
 
-      {/* Articles */}
-      <section id="articles" className="scroll-mt-16">
-        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">
-          Articles
-        </h2>
-        <ul className="space-y-4">
+      {/* Writing */}
+      <section id="writing" style={{ paddingBottom: '72px' }}>
+        <p className="section-label">Writing</p>
+        <div>
           {articles.map((article) => (
-            <li key={article.id}>
-              <a
-                href={article.url}
-                className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 rounded-xl bg-white border border-gray-200 p-4 sm:p-5 hover:border-gray-300 hover:bg-gray-50/50 transition-all group"
-              >
-                <span className="font-medium text-gray-900 group-hover:text-indigo-600 transition-colors">
-                  {article.title}
-                </span>
-                <span className="text-sm text-gray-500 shrink-0">
-                  {article.date}
-                </span>
-              </a>
-            </li>
+            <a key={article.id} href={article.url} className="article-row">
+              <span className="article-title" style={{ fontSize: '14px', fontWeight: 400, color: 'var(--ink)' }}>
+                {article.title}
+              </span>
+              <span style={{ fontSize: '13px', color: 'var(--ink-2)', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                {article.date}
+              </span>
+            </a>
           ))}
-        </ul>
+        </div>
       </section>
+
+      {/* About */}
+      <section id="about" style={{ paddingBottom: '72px' }}>
+        <p className="section-label">About</p>
+        <p style={{ fontSize: '15px', lineHeight: 1.8, color: 'var(--ink-2)', maxWidth: '520px', marginBottom: '16px' }}>
+          I'm a [role] based in [location] with [X] years of experience in [domain].
+          I care about clarity, function, and the invisible work that makes things feel obvious.
+        </p>
+        <p style={{ fontSize: '15px', lineHeight: 1.8, color: 'var(--ink-2)', maxWidth: '520px' }}>
+          Previously at [company]. Currently working with teams on [type of work].
+          When I'm not designing, I [hobby or interest].
+        </p>
+      </section>
+
+      {/* Contact */}
+      <section id="contact">
+        <p className="section-label">Inquiry</p>
+        <h2
+          className="font-display"
+          style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 400, color: 'var(--ink)', marginBottom: '16px', letterSpacing: '-0.02em' }}
+        >
+          Let's work together.
+        </h2>
+        <p style={{ fontSize: '15px', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '24px', maxWidth: '400px' }}>
+          I take on a limited number of projects each year. If you have something interesting in mind, reach out.
+        </p>
+        <a
+          href="mailto:hello@yourname.com"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            fontSize: '14px',
+            fontWeight: 500,
+            color: 'var(--ink)',
+            textDecoration: 'underline',
+            textUnderlineOffset: '3px',
+          }}
+        >
+          hello@yourname.com →
+        </a>
+      </section>
+
     </div>
   )
 }
 
-const caseStudies = [
+const projects = [
   {
     id: 1,
-    client: 'Client or product',
-    title: 'Project name — short outcome',
-    summary: 'One or two sentences on the problem, your role, and the result. Replace with your own case study.',
+    title: 'Project Name — short outcome',
+    tags: ['product design', 'web dev'],
+    color: '#D5CFC5',
+    initials: 'PN',
     url: '#',
   },
   {
     id: 2,
-    client: 'Another context',
-    title: 'Another project — key result',
-    summary: 'Brief description of scope, approach, and impact. Easy to scan and expand later.',
+    title: 'Another Project — key result',
+    tags: ['web design', 'branding'],
+    color: '#C8CDD4',
+    initials: 'AP',
     url: '#',
   },
   {
     id: 3,
-    client: 'Side project or employer',
-    title: 'Third case study — what changed',
-    summary: 'Keep the same structure so the section feels consistent. You can link to full write-ups or external posts.',
+    title: 'Third Project — what changed',
+    tags: ['product design', 'research'],
+    color: '#CCCFC6',
+    initials: 'TP',
+    url: '#',
+  },
+  {
+    id: 4,
+    title: 'Side Project — exploration',
+    tags: ['side project', 'experiment'],
+    color: '#D4CBCE',
+    initials: 'SP',
     url: '#',
   },
 ]
 
 const articles = [
-  { id: 1, title: 'Article or post title', date: 'Feb 2025', url: '#' },
-  { id: 2, title: 'Another piece you wrote', date: 'Jan 2025', url: '#' },
-  { id: 3, title: 'Third article or talk', date: 'Dec 2024', url: '#' },
+  { id: 1, title: 'How I became a product designer', date: 'Mar 2025', url: '#' },
+  { id: 2, title: 'On choosing problems worth solving', date: 'Jan 2025', url: '#' },
+  { id: 3, title: 'The case for restraint in design', date: 'Nov 2024', url: '#' },
+  { id: 4, title: 'What I learned shipping a side project', date: 'Aug 2024', url: '#' },
+  { id: 5, title: 'Design systems are not the goal', date: 'Jun 2024', url: '#' },
 ]
